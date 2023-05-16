@@ -48,52 +48,33 @@ public class FirstFragment extends Fragment {
             presetBinding.twitchChannelPresetPart.setText(preset.partNumber + "");
             presetBinding.twitchChannelPresetEnglish.setChecked(preset.isEnglish);
 
-            presetBinding.twitchChannelPresetPartPlus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int was = Integer.parseInt(presetBinding.twitchChannelPresetPart.getText().toString());
-                    Preset copy = preset;
-                    copy.partNumber = was + 1;
-                    Preset.EditInPrefs(getActivity(), copy);
-                    presetBinding.twitchChannelPresetPart.setText(copy.partNumber + "");
-                }
+            presetBinding.twitchChannelPresetPartPlus.setOnClickListener(v -> {
+                int was = Integer.parseInt(presetBinding.twitchChannelPresetPart.getText().toString());
+                Preset copy = preset;
+                copy.partNumber = was + 1;
+                Preset.EditInPrefs(getActivity(), copy);
+                presetBinding.twitchChannelPresetPart.setText(copy.partNumber + "");
             });
-            presetBinding.twitchChannelPresetPartMinus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int was = Integer.parseInt(presetBinding.twitchChannelPresetPart.getText().toString());
-                    Preset copy = preset;
-                    copy.partNumber = was - 1;
-                    Preset.EditInPrefs(getActivity(), copy);
-                    presetBinding.twitchChannelPresetPart.setText(copy.partNumber + "");
-                }
+            presetBinding.twitchChannelPresetPartMinus.setOnClickListener(v -> {
+                int was = Integer.parseInt(presetBinding.twitchChannelPresetPart.getText().toString());
+                Preset copy = preset;
+                copy.partNumber = was - 1;
+                Preset.EditInPrefs(getActivity(), copy);
+                presetBinding.twitchChannelPresetPart.setText(copy.partNumber + "");
             });
-            presetBinding.twitchChannelPresetEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    Preset copy = preset;
-                    copy.isEnglish = isChecked;
-                    Preset.EditInPrefs(getActivity(), copy);
-                }
+            presetBinding.twitchChannelPresetEnglish.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                Preset copy = preset;
+                copy.isEnglish = isChecked;
+                Preset.EditInPrefs(getActivity(), copy);
             });
 
             binding.layoutFirst.addView(presetBinding.getRoot());
         }
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-            }
-        });
-        binding.settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_CredsFragment);
-            }
-        });
+        binding.buttonFirst.setOnClickListener(view1 -> NavHostFragment.findNavController(FirstFragment.this)
+                .navigate(R.id.action_FirstFragment_to_SecondFragment));
+        binding.settings.setOnClickListener(view12 -> NavHostFragment.findNavController(FirstFragment.this)
+                .navigate(R.id.action_FirstFragment_to_CredsFragment));
     }
 
     @Override
