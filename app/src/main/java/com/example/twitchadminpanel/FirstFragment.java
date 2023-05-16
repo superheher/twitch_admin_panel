@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,39 @@ public class FirstFragment extends Fragment {
             presetBinding.twitchChannelPresetGame.setText(preset.gameName
                 + MainActivity.SEPARATOR_GAME_ID
                 + preset.gameId);
+            presetBinding.twitchChannelPresetNumber.setText("#" + preset.uniqueNumber);
+            presetBinding.twitchChannelPresetPart.setText(preset.partNumber + "");
+            presetBinding.twitchChannelPresetEnglish.setChecked(preset.isEnglish);
+
+            presetBinding.twitchChannelPresetPartPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int was = Integer.parseInt(presetBinding.twitchChannelPresetPart.getText().toString());
+                    Preset copy = preset;
+                    copy.partNumber = was + 1;
+                    Preset.EditInPrefs(getActivity(), copy);
+                    presetBinding.twitchChannelPresetPart.setText(copy.partNumber + "");
+                }
+            });
+            presetBinding.twitchChannelPresetPartMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int was = Integer.parseInt(presetBinding.twitchChannelPresetPart.getText().toString());
+                    Preset copy = preset;
+                    copy.partNumber = was - 1;
+                    Preset.EditInPrefs(getActivity(), copy);
+                    presetBinding.twitchChannelPresetPart.setText(copy.partNumber + "");
+                }
+            });
+            presetBinding.twitchChannelPresetEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Preset copy = preset;
+                    copy.isEnglish = isChecked;
+                    Preset.EditInPrefs(getActivity(), copy);
+                }
+            });
+
             binding.layoutFirst.addView(presetBinding.getRoot());
         }
 
