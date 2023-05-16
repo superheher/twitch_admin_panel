@@ -23,6 +23,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     final public static String SEPARATOR_IN_PRESET = "3333MM";
+    final public static String SEPARATOR_GAME_ID = "___";
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

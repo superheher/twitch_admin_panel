@@ -70,7 +70,7 @@ public class SecondFragment extends Fragment {
         binding.gameSearchResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = binding.gameSearchResult.getItemAtPosition(position).toString();
-                String[] data = item.split("___");
+                String[] data = item.split(MainActivity.SEPARATOR_GAME_ID);
                 binding.gameEditor.setText(data[0]);
                 binding.gameId.setText(data[1]);
             }
@@ -93,7 +93,7 @@ public class SecondFragment extends Fragment {
                                 JSONObject oneObject = jsonArray.getJSONObject(i);
 
                                 strings.add(oneObject.getString("name")
-                                        + "___"
+                                        + MainActivity.SEPARATOR_GAME_ID
                                         + oneObject.getString("id"));
                             }
                         } catch (JSONException ignored) {
