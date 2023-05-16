@@ -101,8 +101,6 @@ public class FirstFragment extends Fragment {
             binding.layoutFirst.addView(presetBinding.getRoot());
         }
 
-        binding.buttonFirst.setOnClickListener(view1 -> NavHostFragment.findNavController(FirstFragment.this)
-                .navigate(R.id.action_FirstFragment_to_SecondFragment));
         binding.settings.setOnClickListener(view12 -> NavHostFragment.findNavController(FirstFragment.this)
                 .navigate(R.id.action_FirstFragment_to_CredsFragment));
     }
