@@ -4,56 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CredsFragment">
+    tools:context=".ConfirmDeleteFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <Button
-            android:id="@+id/save"
+        <TextView
+            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Save"
+            android:text="Do you really want to delete this preset?"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.213"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/channel_name"
-            android:layout_width="327dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="80dp"
-            android:hint="Channel Name"
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Yes, delete"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <EditText
-            android:id="@+id/oauth_token"
-            android:layout_width="327dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="140dp"
-            android:hint="OAuth Token"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <EditText
-            android:id="@+id/client_id"
-            android:layout_width="327dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="200dp"
-            android:hint="Client Id"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

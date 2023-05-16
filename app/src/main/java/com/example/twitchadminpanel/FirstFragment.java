@@ -68,6 +68,12 @@ public class FirstFragment extends Fragment {
                 Preset.EditInPrefs(getActivity(), copy);
             });
 
+            presetBinding.twitchChannelPresetDelete.setOnClickListener(view12 -> {
+                ConfirmDeleteFragment.CURRENT_PRESET_TO_DELETE = preset;
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_ConfirmDeleteFragment);
+            });
+
             binding.layoutFirst.addView(presetBinding.getRoot());
         }
 

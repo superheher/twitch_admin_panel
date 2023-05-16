@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_CredsFragment"
             app:destination="@id/CredsFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_ConfirmDeleteFragment"
+            app:destination="@id/ConfirmDeleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -36,6 +39,16 @@
 
         <action
             android:id="@+id/action_CredsFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ConfirmDeleteFragment"
+        android:name="com.example.twitchadminpanel.ConfirmDeleteFragment"
+        android:label="Creds Fragment"
+        tools:layout="@layout/fragment_confirm_delete_preset">
+
+        <action
+            android:id="@+id/action_ConfirmDeleteFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
