@@ -36,16 +36,13 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String presets = getActivity().getPreferences(Context.MODE_PRIVATE).getString("presets", "");
-        String[] presetsList = presets.split(MainActivity.SEPARATOR_IN_PRESET);
-
-        for (String title : presetsList) {
-            if (title.isEmpty()) {
-                continue;
-            }
+        for (Preset preset : Preset.FromPrefs(getActivity())) {
             LayoutInflater inflater = LayoutInflater.from(binding.layoutFirst.getContext());
             TwitchChannelPresetBinding presetBinding = TwitchChannelPresetBinding.inflate(inflater, null, false);
-            presetBinding.twitchChannelPresetTitle.setText(title);
+            presetBinding.twitchChannelPresetTitle.setText(preset.title);
+            presetBinding.twitchChannelPresetGame.setText(preset.gameName
+                + MainActivity.SEPARATOR_GAME_ID
+                + preset.gameId);
             binding.layoutFirst.addView(presetBinding.getRoot());
         }
 

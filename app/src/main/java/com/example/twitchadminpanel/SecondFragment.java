@@ -55,12 +55,13 @@ public class SecondFragment extends Fragment {
         binding.save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences pref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                String presets = pref.getString("presets", "");
-                presets += binding.titleEditor.getText() + MainActivity.SEPARATOR_IN_PRESET;
-                editor.putString("presets", presets);
-                editor.apply();
+                {
+                    Preset preset = new Preset();
+                    preset.title = String.valueOf(binding.titleEditor.getText());
+                    preset.gameName = String.valueOf(binding.gameEditor.getText());
+                    preset.gameId = String.valueOf(binding.gameId.getText());
+                    Preset.AddToPrefs(getActivity(), preset);
+                }
 
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
