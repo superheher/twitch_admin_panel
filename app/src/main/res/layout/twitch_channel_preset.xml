@@ -14,7 +14,7 @@
         android:layout_height="43dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="200dp"
-        android:text="@string/next"
+        android:text="Send"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
