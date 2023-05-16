@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     final public static String SEPARATOR_IN_PRESET = "3333MM";
     final public static String SEPARATOR_GAME_ID = "___";
+    final public static String SEPARATOR_IN_CREDS = "444_4MM";
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

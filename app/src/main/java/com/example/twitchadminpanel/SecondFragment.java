@@ -109,9 +109,11 @@ public class SecondFragment extends Fragment {
                 }) {
                     @Override
                     public Map<String, String> getHeaders() throws AuthFailureError {
+                        Creds creds = Creds.FromPrefs(getActivity());
+
                         Map<String, String> params = new HashMap<String, String>();
-                        params.put("Authorization", "Bearer ");
-                        params.put("Client-Id", "");
+                        params.put("Authorization", "Bearer " + creds.oauthToken);
+                        params.put("Client-Id", creds.clientId);
 
                         return params;
                     }
