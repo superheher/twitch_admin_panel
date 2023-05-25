@@ -103,6 +103,9 @@ public class FirstFragment extends Fragment {
 
         binding.settings.setOnClickListener(view12 -> NavHostFragment.findNavController(FirstFragment.this)
                 .navigate(R.id.action_FirstFragment_to_CredsFragment));
+
+        binding.add.setOnClickListener(view12 -> NavHostFragment.findNavController(FirstFragment.this)
+                .navigate(R.id.action_FirstFragment_to_SecondFragment));
     }
 
     public void requestUserId(Preset preset) {
