@@ -56,7 +56,7 @@ public class SecondFragment extends Fragment {
         binding.save.setOnClickListener(view1 -> {
             {
                 Preset preset = new Preset();
-                preset.title = String.valueOf(binding.titleEditor.getText());
+                preset.title = String.valueOf(binding.titleEditor.getText()).trim();
                 preset.gameName = String.valueOf(binding.gameEditor.getText());
                 preset.gameId = String.valueOf(binding.gameId.getText());
                 Preset.AddToPrefs(getActivity(), preset);
